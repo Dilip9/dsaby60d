@@ -1,5 +1,7 @@
 package arrays;
 
+import java.util.Arrays;
+
 public class PgmPractice1 {
     // move all zero at the starting end.
     public static void main(String[] args) {
@@ -14,12 +16,13 @@ public class PgmPractice1 {
         sortZeroOneTwo(zot);                    // 21. Sort zero, One and two in ascending order.
         int[] maj = {1,4,6,2,7,3,4,5,3,4,2,3,4,3,4,4,3,4,4,4,2,4,4,4,2,3,4,4,4,3,4};
         int[] prices = {7,3,7,2,4,9,12};
+        int[] nums = {3,4,-1,1};
         majorityElementInArray(maj);
         removeDuplicateFromSortedArray();
         bestTimeToBuyStock(prices);
         numberOfZeroFilledSubArray();
-        increasingTrippletesSequence();
-        firstMissingPositive();
+        increasingTrippletesSequence(prices);
+        firstMissingPositive(nums);
         searchElementArray(arr);
         findMinNMaxArray(arr);
 
@@ -95,6 +98,23 @@ public class PgmPractice1 {
         }
 
     }
+    static void firstMissingPositive(int[] array){
+        int n = array.length;
+        int min = 1;
+        Arrays.sort(array);
+        for(int i=0;i<n;i++){
+            if(array[i] > min){
+                break;
+            }
+            if(array[i] == min){
+                min = min+1;
+            }
+
+        }
+        System.out.println("first missing positive "+min);
+    }
+
+
 
 
     static void swap(int[] arr, int low, int high){
