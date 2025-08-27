@@ -1,0 +1,54 @@
+Array Based Most frequently asked questions.
+1. Move Zeroes                                                                                      // Done
+2. Majority Element                                                                                 // Done
+3. Remove Duplicates from Sorted Array                                                              // Done
+4. Best Time to Buy and Sell Stock                                                                  // Done
+5. Rotate Array                                                                                     // Done
+6. Product of Array Except Self                                                                     // Done
+7. Best Time to Buy and Sell Stock II                                                               // Done
+8. Number of Zero-Filled Subarrays                                                                  // Done
+9. Increasing Triplet Subsequence                                                                   // Done
+10 First Missing Positive                                                                           // Done
+11. Search an Element in an array
+12. Find minimum and maximum element in an array
+13. Wave Array
+14. Transpose of Matrix
+15. Next Greater Element
+16. Maximum of all subarrays of size k
+17. Missing number in array
+18. Bitonic Point
+19. Count Palindrome Sub-Strings of a String                                
+20. Reverse an Array/String	                                                                        // Done
+21. Given an array which consists of only 0, 1 and 2. Sort the array without using any sorting algo	// Done
+22. Move all the negative elements to one side of the array	
+23. Find the Union and Intersection of the two sorted arrays.	 	 
+24. Write a program to cyclically rotate an array by one.	
+25. Find Largest sum contiguous Subarray 	 	 
+26. Minimize the maximum difference between heights  
+27. Minimum no. of Jumps to reach end of an array	 	 
+28. Find duplicate in an array of N+1 Integers	 	 
+29. Merge 2 sorted arrays without using Extra space.	 	 
+30. Kadane's Algo 	 	 
+31. Merge Intervals	 	 
+32. Next Permutation	 	 
+33. Count Inversion	 	 
+34. Best time to buy and Sell stock	 	 
+35. Find all pairs on integer array whose sum is equal to given number	 	 
+36. Find common elements In 3 sorted arrays	 	 
+37. Rearrange the array in alternating positive and negative items with O(1) extra space	 	 
+38. Find if there is any subarray with sum equal to 0	 	 
+39. Find factorial of a large number	 	 
+40. Find maximum product subarray	 	 
+41. Find longest consecutive subsequence	 	 
+42. Given an array of size n and a number k, fin all elements that appear more than " n/k " times.	 	 
+43. Maximum profit by buying and selling a share at most twice	 	 
+44. Find whether an array is a subset of another array	 	 
+45. Find the triplet that sum to a given value	 	 
+46. Trapping Rain water problem	 	 
+47. Chocolate Distribution problem	 	 
+48. Smallest Subarray with sum greater than a given value	 	 
+49. Three way partitioning of an array around a given value	 	 
+50. Minimum swaps required bring elements less equal K together	 	 
+51. Minimum no. of operations required to make an array palindrome	 	 
+52. Median of 2 sorted arrays of equal size	 	 
+53. Median of 2 sorted arrays of different size
