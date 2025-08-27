@@ -13,14 +13,15 @@ public class PgmPractice1 {
         System.out.println("::::::::::::::::Before doing final operations::::::::::");
         sortZeroOneTwo(zot);                    // 21. Sort zero, One and two in ascending order.
         int[] maj = {1,4,6,2,7,3,4,5,3,4,2,3,4,3,4,4,3,4,4,4,2,4,4,4,2,3,4,4,4,3,4};
+        int[] prices = {7,3,7,2,4,9,12};
         majorityElementInArray(maj);
         removeDuplicateFromSortedArray();
-        BestTimeToBuyStock();
-        NumberOfZeroFilledSubArray();
-        IncreasingTrippletesSequence();
-        FirstMissingPositive();
-        SearchElementArray(arr);
-        FindMinNMaxArray(arr);
+        bestTimeToBuyStock(prices);
+        numberOfZeroFilledSubArray();
+        increasingTrippletesSequence();
+        firstMissingPositive();
+        searchElementArray(arr);
+        findMinNMaxArray(arr);
 
 
 
@@ -79,7 +80,21 @@ public class PgmPractice1 {
             System.out.println("Nothing is majority");
         }
     }
+    static void bestTimeToBuyStock(int[] arr){
+        int minProfit = arr[0];
+        int maxProfit = 0;
+        for(int i=1;i<arr.length;i++){
+            minProfit = Math.min(minProfit, arr[i]);
+            maxProfit = Math.max(maxProfit, arr[i]-minProfit);
+                        
+        }
+        if(maxProfit<-1){
+            System.out.println("Loss in buying stock");
+        }else{
+            System.out.println(maxProfit);
+        }
 
+    }
 
 
     static void swap(int[] arr, int low, int high){
