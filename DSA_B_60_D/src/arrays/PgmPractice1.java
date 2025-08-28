@@ -113,7 +113,19 @@ public class PgmPractice1 {
         }
         System.out.println("first missing positive "+min);
     }
-
+    static void increasingTrippletesSequence(int[] nums){
+        int first = Integer.MAX_VALUE;
+        int second = Integer.MAX_VALUE;
+        for(int n: nums){
+            if(n <= first){
+                first = n;
+            }else if(n <= second){
+                second = n;
+            }else{
+                System.out.println("Tripllets exists into an array");
+            }
+        }
+    }
 
 
 
