@@ -1,6 +1,8 @@
 package arrays;
 
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class PgmPractice1 {
     // move all zero at the starting end.
@@ -17,6 +19,7 @@ public class PgmPractice1 {
         int[] maj = {1,4,6,2,7,3,4,5,3,4,2,3,4,3,4,4,3,4,4,4,2,4,4,4,2,3,4,4,4,3,4};
         int[] prices = {7,3,7,2,4,9,12};
         int[] nums = {3,4,-1,1};
+        List<String> str = Arrays.asList("6", "31415926535897932384626433832795","1","3","10","3","5","546732325452","2353235","346352235465765736234241242343253464","24356908645345776788787","9787768767623");
         majorityElementInArray(maj);
         removeDuplicateFromSortedArray();
         bestTimeToBuyStock(prices);
@@ -25,6 +28,7 @@ public class PgmPractice1 {
         firstMissingPositive(nums);
         searchElementArray(arr);
         findMinNMaxArray(arr);
+        sortStringInAscending(str);
 
 
 
@@ -126,7 +130,19 @@ public class PgmPractice1 {
             }
         }
     }
-
+    static void sortStringInAscending(List<String> str){
+        str.sort(new Comparator<String>() {
+            
+            public int compare(String s1, String s2){
+                if(s1.length() != s2.length()){
+                    return Integer.compare(s1.length(), s2.length());
+                }else{
+                    return s1.compareTo(s1);
+                }
+            }
+        });
+        printStringArray(str);
+    }
 
 
     static void swap(int[] arr, int low, int high){
@@ -141,6 +157,10 @@ public class PgmPractice1 {
         }
         System.out.println();
     }
-
+    static void printStringArray(List<String> stringArray){
+        for(String str : stringArray){
+            System.out.print(str+" ");
+        }
+    }
 
 }
