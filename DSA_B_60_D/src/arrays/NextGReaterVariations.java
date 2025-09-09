@@ -8,7 +8,7 @@ public class NextGReaterVariations {
     public static void main(String[] args) {
         // next greater element
         int[] nums1 = {1,6,4,8};
-        int[] nums2 = {3,8,4,9,12};
+        int[] nums2 = {3,8,4,9,12,1,2,7,2};
         // Basics to find next greater element.
         findNextGreaterElement(nums1, nums2);
         // Medium Variations
@@ -35,7 +35,20 @@ public class NextGReaterVariations {
         show(result);
     }
 
-    public static void findNextGreaterElementII(){}
+    public static void findNextGreaterElementII(int[] array){
+        Stack<Integer> stack = new Stack<>();
+        int n = array.length;
+        int[] result = new int[n];
+        for(int i = 2*n-1;i>=0;i--){
+            while(!stack.isEmpty() && array[stack.peek()]<=array[i%n]){
+                stack.pop();
+            }
+            result[i%n] = stack.isEmpty()?-1:array[stack.peek()];
+            stack.push(i%n);
+        }
+        System.out.println("Second and medium variations of next greater element... ");
+        show(result);
+     }
 
     public static void show(int[] arr){
         for(int n : arr){
