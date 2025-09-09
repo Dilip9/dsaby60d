@@ -9,11 +9,11 @@ Array Based Most frequently asked questions.
 8. Number of Zero-Filled Subarrays                                                                  // Done
 9. Increasing Triplet Subsequence                                                                   // Done
 10 First Missing Positive                                                                           // Done
-11. Search an Element in an array
+11. Search an Element in an array                           
 12. Find minimum and maximum element in an array
 13. Wave Array
 14. Transpose of Matrix
-15. Next Greater Element
+15. Next Greater Element                                                                            // Done
 16. Maximum of all subarrays of size k
 17. Missing number in array
 18. Bitonic Point
@@ -28,7 +28,7 @@ Array Based Most frequently asked questions.
 27. Minimum no. of Jumps to reach end of an array	 	 
 28. Find duplicate in an array of N+1 Integers	 	 
 29. Merge 2 sorted arrays without using Extra space.	 	 
-30. Kadane's Algo 	 	 
+30. Kadane's Algo 	 	                                                                             // Done
 31. Merge Intervals	 	 
 32. Next Permutation	 	 
 33. Count Inversion	 	 
