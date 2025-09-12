@@ -1,9 +1,12 @@
 package arrays;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class WiggleSortVariations {
     public static void main(String[] args) {
         int[] num = {3,5,2,1,6,4};
         wiggleSortI(num);
+        int[] nums = {1, 5, 1, 1, 6, 4};
         wiggleSortII(nums);
     }
     public static void wiggleSortI(int[] num){
@@ -18,6 +21,80 @@ public class WiggleSortVariations {
         show(num);
     }
 
+    public static void wiggleSortII(int[] nums){
+        int n = nums.length;
+        if (n <= 1) return;
+
+        // Find median using a randomized quickselect on a copy to preserve original order for partitioning
+        int[] copy = nums.clone();
+        int median = quickSelect(copy, 0, n - 1, n / 2);
+
+        // 3-way partition with virtual indexing
+        int left = 0, i = 0, right = n - 1;
+        while (i <= right) {
+            int vi = virtualIndex(i, n);
+            int vl = virtualIndex(left, n);
+            int vr = virtualIndex(right, n);
+
+            if (nums[vi] > median) {
+                swap(nums, vl, vi);
+                left++;
+                i++;
+            } else if (nums[vi] < median) {
+                swap(nums, vi, vr);
+                right--;
+            } else {
+                i++;
+            }
+        }
+        show(nums);
+    }
+
+    // Virtual index mapping to place larger elements at odd indices first
+    private static int virtualIndex(int idx, int n) {
+        return (1 + 2 * idx) % (n | 1);
+    }
+
+    // Randomized quickselect to find k-th smallest (0-based)
+    private static int quickSelect(int[] a, int left, int right, int k) {
+        while (left <= right) {
+            int pivotIndex = ThreadLocalRandom.current().nextInt(left, right + 1);
+            int pivotFinal = partition(a, left, right, pivotIndex);
+
+            if (pivotFinal == k) {
+                return a[pivotFinal];
+            } else if (k < pivotFinal) {
+                right = pivotFinal - 1;
+            } else {
+                left = pivotFinal + 1;
+            }
+        }
+        // should not reach here for valid k
+        return a[left];
+    }
+
+    // Partition using Lomuto-style: pivot moved to end then partitioned
+    private static int partition(int[] a, int left, int right, int pivotIndex) {
+        int pivotVal = a[pivotIndex];
+        swap(a, pivotIndex, right);
+        int store = left;
+        for (int i = left; i < right; i++) {
+            if (a[i] < pivotVal) {
+                swap(a, store, i);
+                store++;
+            }
+        }
+        swap(a, store, right); // move pivot to its final place
+        return store;
+    }
+
+    private static void swap(int[] a, int i, int j) {
+        if (i == j) return;
+        int t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    
+    }
     public static void show(int[] num){
         for(int n : num){
             System.out.print(n+" ");
