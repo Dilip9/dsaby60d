@@ -37,6 +37,45 @@ public class PgmPractice1 {
 
     }
 
+    public static void findMinNMaxArray(int[] array){
+        int min, max;
+        int i;
+        if(array == null || array.length == 0){
+            System.out.println("Array is empty.");
+        }
+
+        if(array.length % 2 == 0){
+            if(array[0] < array[1]){
+                min = array[0];
+                max = array[1];
+            }else{
+                min = array[1];
+                max = array[0];
+            }
+            i = 2;
+        }else{
+            min = max = array[0];
+            i = 1;
+        }
+        // Process pairs
+        while(i<array.length-1){
+            int localMin, localMax;
+            if(array[i] < array[i+1]){
+                localMin = array[i];
+                localMax = array[i+1];
+            }else{
+                localMin = array[i+1];
+                localMax = array[i];
+            }
+            if(localMin < min) min = localMin;
+            if(localMax > max) max = localMax;
+            i += 2;
+        }
+        System.out.println("Minimum: "+min);
+        System.out.println("Maximum: "+max);
+
+    }
+
     public static void  removeMinNMaxFromArray(int[] nums) {
         int n = nums.length;
         int minIndex = 0, maxIndex = 0;
