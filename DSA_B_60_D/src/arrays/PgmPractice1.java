@@ -21,17 +21,31 @@ public class PgmPractice1 {
         int[] nums = {3,4,-1,1};
         List<String> str = Arrays.asList("6", "31415926535897932384626433832795","1","3","10","3","5","546732325452","2353235","346352235465765736234241242343253464","24356908645345776788787","9787768767623");
         majorityElementInArray(maj);
-        removeDuplicateFromSortedArray();
+        int[] dupSortedArray = {2,2,5,7,9,9,10,11,13,13,45,45,78};
+        removeDuplicateFromSortedArray(dupSortedArray);
         bestTimeToBuyStock(prices);
-        numberOfZeroFilledSubArray();
+        //numberOfZeroFilledSubArray();
         increasingTrippletesSequence(prices);
         firstMissingPositive(nums);
-        searchElementArray(arr);
-        findMinNMaxArray(arr);
+        //searchElementArray(arr);
+        //findMinNMaxArray(arr);
         sortStringInAscending(str);
 
 
 
+    }
+
+    static void removeDuplicateFromSortedArray(int[] duplicateSortedArray){
+        int  j=0;
+        int[] temp = new int[duplicateSortedArray.length];
+        temp[j++] = duplicateSortedArray[0];
+        for(int i =1;i<duplicateSortedArray.length;i++) {
+            if(duplicateSortedArray[i] != duplicateSortedArray[i-1]){
+                temp[j++] = duplicateSortedArray[i];
+            }
+        }
+        System.out.println("Sorted array after removing duplicate element..");
+        System.out.println(Arrays.toString(temp));
     }
     static void pushZeroAtEnd(int[] arr){
         int counter = 0;
