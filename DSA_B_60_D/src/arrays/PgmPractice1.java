@@ -27,7 +27,7 @@ public class PgmPractice1 {
         //numberOfZeroFilledSubArray();
         increasingTrippletesSequence(prices);
         firstMissingPositive(nums);
-        //searchElementArray(arr);
+        searchElementArray(arr, 8);
         //findMinNMaxArray(arr);
         sortStringInAscending(str);
 
@@ -35,6 +35,13 @@ public class PgmPractice1 {
 
     }
 
+    static void searchElementArray(int[] array, int n){
+        for(int i = 0; i<array.length;i++){
+            if(array[i] == n){
+                System.out.println("Element found at index " +i+" .");
+            }
+        }
+    }
     static void removeDuplicateFromSortedArray(int[] duplicateSortedArray){
         int  j=0;
         int[] temp = new int[duplicateSortedArray.length];
