@@ -24,7 +24,8 @@ public class PgmPractice1 {
         int[] dupSortedArray = {2,2,5,7,9,9,10,11,13,13,45,45,78};
         removeDuplicateFromSortedArray(dupSortedArray);
         bestTimeToBuyStock(prices);
-        //numberOfZeroFilledSubArray();
+        int[] nnn = {1,3,0,0,2,0,0,4};
+        numberOfZeroFilledSubArray(nnn);
         increasingTrippletesSequence(prices);
         firstMissingPositive(nums);
         searchElementArray(arr, 8);
@@ -35,6 +36,20 @@ public class PgmPractice1 {
 
     }
 
+    static void numberOfZeroFilledSubArray(int[] arr){
+        long count = 0;
+        long zeroLength = 0;
+        for(int n : arr){
+            if(n==0){
+                zeroLength++;
+            }else{
+                count += (zeroLength * (zeroLength+1))/2;
+                zeroLength = 0;
+            }
+        }
+        count += (zeroLength * (zeroLength+1))/2;
+        System.out.println("Sub-array filled with zero total should be : "+count);
+    }
     static void searchElementArray(int[] array, int n){
         for(int i = 0; i<array.length;i++){
             if(array[i] == n){
