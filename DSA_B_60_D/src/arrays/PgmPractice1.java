@@ -29,11 +29,36 @@ public class PgmPractice1 {
         increasingTrippletesSequence(prices);
         firstMissingPositive(nums);
         searchElementArray(arr, 8);
-        //findMinNMaxArray(arr);
+        findMinNMaxArray(arr);
+        removeMinNMaxFromArray(maj);
         sortStringInAscending(str);
 
 
 
+    }
+
+    public static void  removeMinNMaxFromArray(int[] nums) {
+        int n = nums.length;
+        int minIndex = 0, maxIndex = 0;
+        // find indices of min and max
+        for(int i = 1; i<n;i++){
+            if(nums[i]<nums[minIndex]) minIndex = i;
+            if(nums[i]>nums[maxIndex]) maxIndex = i;
+        }
+        int left = Math.min(minIndex, maxIndex);
+        int right = Math.max(minIndex, maxIndex);
+
+        // Strategy 1: remove from front;
+        int front = right+1;
+
+        // Strategy 2: remove from back
+        int back = n - left;
+        
+        // Strategy 3: remove from both ends
+        int both = (left+1)+(n-right);
+
+        int result =  Math.min(front, Math.min(back, both));
+        System.out.println("Answer : "+result);
     }
 
     static void numberOfZeroFilledSubArray(int[] arr){
