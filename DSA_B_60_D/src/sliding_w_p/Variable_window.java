@@ -1,3 +1,8 @@
+package sliding_w_p;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Variable_window {
     public static void main(String[] args){
         /**
