@@ -33,33 +33,17 @@
          * 4. Regular expression matching
          * 5. Wildcard matching
          * 6. Word ladder
-         * 7. N-ary tree traversal
-         * 8. Graph traversal (DFS and BFS)
-         * 9. Backtracking problems (e.g., Sudoku, N-Queens)
-         * 10. Dynamic programming problems (e.g., Fibonacci with memoization, Knapsack
+         * 7. N-Queensproblem
+         * 8. N-ary tree traversal
+         * 9. Graph traversal (DFS and BFS)
+         * 10. Backtracking problems (e.g., Sudoku, N-Queens)
+         * 11. Dynamic programming problems (e.g., Fibonacci with memoization, Knapsack
    * Top Competitive programming recursion problems
          * 1. Subset sum problem
-         * 2. Count of subsets with a given sum
-         * 3. Longest common subsequence
-         * 4. Edit distance
-         * 5. Regular expression matching
 
-   Top-wise categorization of recursion problems helps in understanding the complexity and application of recursion in various scenarios. Starting with basic problems allows beginners to grasp the fundamental concepts, while medium and advanced problems challenge their problem-solving skills and deepen their understanding of recursion. Competitive programming problems often require efficient recursive solutions, making them an excellent way to practice and improve one's coding skills.
-   Product based company interview preparation problems on recursion
-         * 1. Sum of first N natural numbers
-         * 2. Factorial of a number
-         * 3. Fibonacci series
-         * 4. Power of a number
-         * 5. GCD of two numbers
-         * 6. LCM of two numbers
-         * 7. Reverse a string
-         * 8. Palindrome check
-         * 9. Tower of Hanoi
-         * 10. Permutations of a string
-         * 11. Combinations of a string
-         * 12. Subsets of a set
-         * 13. Binary search
-         * 14. Merge sort
-         * 15. Quick sort
-         * 16. N-Queensproblem
+
+
+
+
+
 
