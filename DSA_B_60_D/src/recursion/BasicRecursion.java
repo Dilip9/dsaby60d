@@ -15,6 +15,8 @@ public class BasicRecursion {
         System.out.println(n+" raised to the power of "+power+" is: "+result);
         long gcdResult = gcd(n,power);
         System.out.println("GCD of "+n+" and "+power+" is: "+gcdResult);
+        long lcmResult = lcm(n,power);
+        System.out.println("LCM of "+n+" and "+power+" is: "+lcmResult);
     }
 
     public static long factorial(int n){
@@ -64,6 +66,18 @@ public class BasicRecursion {
         }if(a == 0) {
             return b;
         }
+        // recursion case
         return gcd(b, a%b);
+    }
+
+    public static int lcm(int a, int b){
+        // base case
+        if(a == 0){
+            return 0;
+        }
+        if(b == 0){
+            return 0;
+        }
+        return (a*b)/gcd(a,b);
     }
 }
