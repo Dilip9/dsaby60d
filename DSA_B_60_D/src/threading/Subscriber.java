@@ -1,3 +1,7 @@
+package threading;
+
+import java.util.concurrent.BlockingQueue;
+
 public class Subscriber implements Runnable {
 
     private final BlockingQueue<Integer> queue;
