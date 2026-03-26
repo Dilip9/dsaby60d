@@ -3,9 +3,9 @@
          * 1. Sum of first N natural numbers    --- Done
          * 2. Factorial of a number             --- Done
          * 3. Fibonacci series                  --- Done
-         * 4. Power of a number
-         * 5. GCD of two numbers
-         * 6. LCM of two numbers
+         * 4. Power of a number                 --- Done
+         * 5. GCD of two numbers                --- Done yet to be done
+         * 6. LCM of two numbers                --- Done yet to be done
          * 7. Reverse a string
          * 8. Palindrome check
          * 9. Tower of Hanoi
@@ -33,11 +33,12 @@
          * 4. Regular expression matching
          * 5. Wildcard matching
          * 6. Word ladder
-         * 7. N-Queensproblem
-         * 8. N-ary tree traversal
-         * 9. Graph traversal (DFS and BFS)
-         * 10. Backtracking problems (e.g., Sudoku, N-Queens)
-         * 11. Dynamic programming problems (e.g., Fibonacci with memoization, Knapsack
+         * 7. N-Queens I
+         * 8. N-Queens II
+         * 9. N-ary tree traversal
+         * 10. Graph traversal (DFS and BFS)
+         * 11. Backtracking problems (e.g., Sudoku, N-Queens)
+         * 12. Dynamic programming problems (e.g., Fibonacci with memoization, Knapsack
    * Top Competitive programming recursion problems
          * 1. Subset sum problem
 

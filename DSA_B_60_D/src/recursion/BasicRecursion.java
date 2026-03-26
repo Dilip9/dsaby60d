@@ -13,6 +13,8 @@ public class BasicRecursion {
         //System.out.println("Fibonacci of N number::::"+fibonacci(n));
         long result = powerOfNumber(n,power);
         System.out.println(n+" raised to the power of "+power+" is: "+result);
+        long gcdResult = gcd(n,power);
+        System.out.println("GCD of "+n+" and "+power+" is: "+gcdResult);
     }
 
     public static long factorial(int n){
@@ -52,5 +54,16 @@ public class BasicRecursion {
 
         // Recursion case
         return base * powerOfNumber(base, exponent-1);
+    }
+
+
+    public static int gcd(int a, int b){
+        // base case
+        if(b == 0){
+            return a;
+        }if(a == 0) {
+            return b;
+        }
+        return gcd(b, a%b);
     }
 }
