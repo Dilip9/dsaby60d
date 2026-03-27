@@ -22,6 +22,9 @@ public class BasicRecursion {
         System.out.println("Reversed String: " + reversedStr);
         System.out.println(" Reverse String with in-place reversal"+ reverseStringInPlace(str));
         System.out.println(" Reverse String with in-place reversal recursive "+ reverseStringInPlaceRecursive(str,0,str.length()-1));
+        String palindromeStr = "madam";
+        boolean  isPalindrome = palindromeCheck(palindromeStr, 0, palindromeStr.length()-1);
+        System.out.println(palindromeStr+" is palindrome: "+isPalindrome);
     }
 
     public static long factorial(int n){
@@ -116,5 +119,16 @@ public class BasicRecursion {
             high--;
         }
         return str;
+    }
+
+    public static boolean palindromeCheck(String str, int low, int high){
+        // base case
+        if(low>= high){
+            return true;
+        }
+        if(str.charAt(low) != str.charAt(high)){
+            return false;
+        }
+        return palindromeCheck(str, low+1, high-1);
     }
 }
