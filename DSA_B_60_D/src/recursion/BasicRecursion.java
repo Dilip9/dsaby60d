@@ -17,9 +17,11 @@ public class BasicRecursion {
         System.out.println("GCD of "+n+" and "+power+" is: "+gcdResult);
         long lcmResult = lcm(n,power);
         System.out.println("LCM of "+n+" and "+power+" is: "+lcmResult);
-        String Str = "Hello World";;
-        String reversedStr = reverseString(Str);
+        String str = "Hello World";;
+        String reversedStr = reverseString(str);
         System.out.println("Reversed String: " + reversedStr);
+        System.out.println(" Reverse String with in-place reversal"+ reverseStringInPlace(str));
+        System.out.println(" Reverse String with in-place reversal recursive "+ reverseStringInPlaceRecursive(str,0,str.length()-1));
     }
 
     public static long factorial(int n){
@@ -90,5 +92,29 @@ public class BasicRecursion {
             return str;
         }
         return reverseString(str.substring(1))+str.charAt(0);
+    }
+
+    public static String reverseStringInPlace(String str){
+        int low = 0;
+        int high = str.length() - 1;
+        while(low< high){
+            char temp = str.charAt(low);
+            str = str.substring(0, low)+str.charAt(high)+str.substring(low+1, high)+temp+str.substring(high+1);
+            low++;
+            high--;
+        }
+        return str;
+    }
+    public static String reverseStringInPlaceRecursive(String str, int low, int high) {
+        // base case
+        char[] charArray = str.toCharArray();
+        while (low < high) {
+            char temp = charArray[low];
+            charArray[low] = charArray[high];
+            charArray[high] = temp;
+            low++;
+            high--;
+        }
+        return str;
     }
 }
