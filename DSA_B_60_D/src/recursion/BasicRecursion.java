@@ -17,6 +17,9 @@ public class BasicRecursion {
         System.out.println("GCD of "+n+" and "+power+" is: "+gcdResult);
         long lcmResult = lcm(n,power);
         System.out.println("LCM of "+n+" and "+power+" is: "+lcmResult);
+        String Str = "Hello World";;
+        String reversedStr = reverseString(Str);
+        System.out.println("Reversed String: " + reversedStr);
     }
 
     public static long factorial(int n){
@@ -79,5 +82,13 @@ public class BasicRecursion {
             return 0;
         }
         return (a*b)/gcd(a,b);
+    }
+
+    public static String reverseString(String str){
+        // base case
+        if(str == null || str.length() == 1){
+            return str;
+        }
+        return reverseString(str.substring(1))+str.charAt(0);
     }
 }
