@@ -1,6 +1,8 @@
 package recursion;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import static recursion.SumOfN.sumOfN;
 
@@ -25,6 +27,9 @@ public class BasicRecursion {
         String palindromeStr = "madam";
         boolean  isPalindrome = palindromeCheck(palindromeStr, 0, palindromeStr.length()-1);
         System.out.println(palindromeStr+" is palindrome: "+isPalindrome);
+        int[] nums = {1,2,3};
+        ArrayList<Integer> subset = new ArrayList<>();
+        subSetOfArray(nums, subset, 0);
     }
 
     public static long factorial(int n){
@@ -131,4 +136,20 @@ public class BasicRecursion {
         }
         return palindromeCheck(str, low+1, high-1);
     }
+
+    public static void subSetOfArray(int[] nums, ArrayList<Integer> ans, int index){
+
+        // Base case
+        if(index==nums.length){
+            System.out.println(ans);
+            return;
+        }
+        // Recursion case
+        //include the current element
+        ans.add(nums[index]);
+        subSetOfArray(nums, ans, index+1);
+        ans.remove(ans.size()-1);
+        subSetOfArray(nums, ans, index+1);
+    }
+
 }
