@@ -10,7 +10,8 @@
          * 8. Palindrome check                  --- Done
          * 9. Tower of Hanoi                    --- Done
          * 10. Permutations of number           --- Done
-         * 10. Permutations of a string         --- Doing
+         * 11. Permutations of a string         --- Done
+         * 12. Permutations of a String - II    --- Done   // Skip duplicate characters
          * 11. Combinations of a string         --- Doing
          * 12. Subsets of a set                 --- Done
          * 13. Subsets of a Set - II            --- Done

@@ -1,6 +1,7 @@
 package recursion;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class MediumRecursion {
 
@@ -20,6 +21,9 @@ public class MediumRecursion {
         System.out.println(" Target element found at :"+index);
         String str = "ABC";
         getStringPermutation(str.toCharArray(), 0);
+        System.out.println(" ++++ Duplicate String +++++");
+        getStringPermutationII("AAB".toCharArray(), 0);
+
 
     }
 
@@ -105,5 +109,25 @@ public class MediumRecursion {
         char temp = chr[x];
         chr[x] = chr[y];
         chr[y] = temp;
+    }
+
+    public static void getStringPermutationII(char[] chr, int idx){
+        if(chr.length == idx){
+            for(char ch: chr){
+                System.out.print(ch+" ");
+            }
+            System.out.println();
+            return;
+        }
+        HashSet<Character> used = new HashSet<>();
+        for(int i = idx; i<chr.length;i++){
+            if(used.contains(chr[i])){
+                continue;
+            }
+            used.add(chr[i]);
+            swapCharacter(chr, idx, i);
+            getStringPermutationII(chr, idx+1);
+            swapCharacter(chr, idx, i);
+        }
     }
 }
