@@ -9,13 +9,13 @@
          * 7. Reverse a string                  --- Done
          * 8. Palindrome check                  --- Done
          * 9. Tower of Hanoi                    --- Done
-         * 10. Permutations of a string
-         * 11. Combinations of a string
+         * 10. Permutations of a string         --- Doing
+         * 11. Combinations of a string         --- Doing
          * 12. Subsets of a set                 --- Done
          * 13. Subsets of a Set - II            --- Done
-         * 13. Binary search                    --- Done
-         * 14. Merge sort
-         * 15. Quick sort
+         * 13. Binary search                    --- Done   yet to confirm
+         * 14. Merge sort                       --- Need to do
+         * 15. Quick sort                       --- Need to do
    * Top 10 medium recursion problems
          * 1. N-Queens problem
          * 2. Sudoku solver

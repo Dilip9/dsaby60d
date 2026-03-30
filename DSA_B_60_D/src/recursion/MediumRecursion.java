@@ -6,13 +6,18 @@ public class MediumRecursion {
 
     public static void main(String[] args) {
         // Subset of uniquie array
-        int[] nums = {1, 2, 2,3,3,4,6,9,9,10};
+        int[] nums = {1, 2, 2,3,3,10};
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
         ArrayList<Integer> ans = new ArrayList<>();
         subsetOfUniqueArray(nums, ans, result, 0);
         System.out.println("Subset of unique array: "+result);
         int[] zaggleArr = {2,6,8,3,5,8,4,6,10,23,32,23,32};
         // sort the array then call the subset of unique array function
+        int[] arr = {3,5,8};
+        ArrayList<Integer> permutation = new ArrayList<>();
+        getPermutation(arr, 0);
+        //binarySearch(arr, 0, arr.length, 8);
+
     }
 
     public static void subsetOfUniqueArray(int[] nums, ArrayList<Integer> ans, ArrayList<ArrayList<Integer>> result, int index){
@@ -34,4 +39,43 @@ public class MediumRecursion {
         }
         subsetOfUniqueArray(nums, ans, result, current+1);
     }
+
+    public static  void getPermutation(int[] arr,  int low){
+
+        // Base case
+        if(arr.length-1 == low){
+            for(int n: arr){
+                System.out.print(n+" ");
+            }
+            System.out.println();
+            return ;
+        }
+        //recursive function
+        for(int i =low ;i<arr.length;i++) {
+            swap(arr, low, i);
+            //result.add(arr[low]);
+            getPermutation(arr, low+1);  // recursive call
+            swap(arr, low, i);  // backtrack
+        }
+
+    }
+    public static void swap(int[] arr, int x, int y){
+        int temp = arr[x];
+        arr[x]= arr[y];
+        arr[y]=temp;
+    }
+//
+//    public static int binarySearch(int[] arr, int low, int high, int target){
+//
+//        int mid = (low+high)/2;
+//        if(arr[mid] == target){
+//            return arr[mid];
+//        }
+//        if(arr[mid]<target){
+//            binarySearch(arr, mid-1, high, target);
+//        }else{
+//            binarySearch(arr, low, mid+1, target);
+//        }
+//        return 0;
+//    }
 }
