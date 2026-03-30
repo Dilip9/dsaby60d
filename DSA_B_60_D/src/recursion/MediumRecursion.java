@@ -16,7 +16,8 @@ public class MediumRecursion {
         int[] arr = {3,5,8};
         ArrayList<Integer> permutation = new ArrayList<>();
         getPermutation(arr, 0);
-        //binarySearch(arr, 0, arr.length, 8);
+        int index = binarySearch(arr, 0, arr.length, 3);
+        System.out.println(" Target element found at :"+index);
 
     }
 
@@ -64,18 +65,22 @@ public class MediumRecursion {
         arr[x]= arr[y];
         arr[y]=temp;
     }
-//
-//    public static int binarySearch(int[] arr, int low, int high, int target){
-//
-//        int mid = (low+high)/2;
-//        if(arr[mid] == target){
-//            return arr[mid];
-//        }
-//        if(arr[mid]<target){
-//            binarySearch(arr, mid-1, high, target);
-//        }else{
-//            binarySearch(arr, low, mid+1, target);
-//        }
-//        return 0;
-//    }
+
+    public static int binarySearch(int[] arr, int low, int high, int target){
+
+        // Base case
+        if(low>high){
+            return -1;
+        }
+
+        int mid = (low+high)/2;
+        if(arr[mid] == target){
+            return mid;
+        }
+        if(arr[mid]<target){
+             return binarySearch(arr, mid+1, high, target);
+        }else{
+            return binarySearch(arr, low, mid-1, target);
+        }
+    }
 }
