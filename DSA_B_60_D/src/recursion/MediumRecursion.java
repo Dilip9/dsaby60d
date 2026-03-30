@@ -18,6 +18,8 @@ public class MediumRecursion {
         getPermutation(arr, 0);
         int index = binarySearch(arr, 0, arr.length, 3);
         System.out.println(" Target element found at :"+index);
+        String str = "ABC";
+        getStringPermutation(str.toCharArray(), 0);
 
     }
 
@@ -82,5 +84,26 @@ public class MediumRecursion {
         }else{
             return binarySearch(arr, low, mid-1, target);
         }
+    }
+
+    public static void getStringPermutation(char[] str, int idx){
+
+        if(str.length == idx){
+            for(char ch : str){
+                System.out.print(ch+" ");
+            }
+            System.out.println();
+            return;
+        }
+        for(int i = idx; i<str.length;i++){
+            swapCharacter(str, idx, i);
+            getStringPermutation(str, idx+1);
+            swapCharacter(str, idx, i);
+        }
+    }
+    public static void swapCharacter(char[] chr, int x, int y){
+        char temp = chr[x];
+        chr[x] = chr[y];
+        chr[y] = temp;
     }
 }
