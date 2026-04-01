@@ -11,6 +11,20 @@ public class HardRecursion {
             }
         }
         solveNQueens(board, 0, n);
+        char[][] sudokuBoard = {
+                {'5','3','.','.','7','.','.','.','.'},
+                {'6','.','.','1','9','5','.','.','.'},
+                {'.','9','8','.','.','.','.','6','.'},
+
+                {'8','.','.','.','6','.','.','.','3'},
+                {'4','.','.','8','.','3','.','.','1'},
+                {'7','.','.','.','2','.','.','.','6'},
+
+                {'.','6','.','.','.','.','2','8','.'},
+                {'.','.','.','4','1','9','.','.','5'},
+                {'.','.','.','.','8','.','.','7','9'}
+        };
+        sudokuSolver(sudokuBoard);
     }
     public static void solveNQueens(char[][] board, int row, int n){
 
@@ -66,5 +80,64 @@ public class HardRecursion {
             System.out.println();
         }
         System.out.println(" -------------------");
+    }
+
+    public static boolean sudokuSolver(char[][] board){
+        return solveSudoku(board, 0, 0);
+    }
+    public static boolean solveSudoku(char[][] board, int row, int col){
+        // base Case
+        if(row==9){
+            System.out.println("Sudoku solved successfully!");
+            printBoard(board, 9);
+            return true;
+        }
+        int nextRow = row;
+        int nextCol = col+1;
+        if(nextCol == 9){
+            nextRow = row+1;
+            nextCol = 0;
+        }
+        // if the cell is already filled, move to the next cell
+        if(board[row][col] != '.'){
+            return solveSudoku(board, nextRow, nextCol);
+        }
+        for(char digit = '1';digit<='9';digit++){
+            if(isSafeSudoku(board, row, col, digit)){
+                board[row][col] =  digit;
+                if(solveSudoku(board, nextRow, nextCol)){
+                    return true;
+                }
+                // backtrack
+                board[row][col] = '.';
+            }
+        }
+        return false;
+    }
+
+    public static boolean isSafeSudoku(char[][] board, int row, int col, char digit){
+        // Horizontal
+        for(int i=0;i<9;i++){
+            if(board[row][i] == digit){
+                return false;
+            }
+        }
+        //vertical
+        for(int i = 0;i<9;i++){
+            if(board[i][col] == digit){
+                return false;
+            }
+        }
+        // 3 X 3 or grid check
+        int sRow = (row/3)*3;
+        int sCol = (col/3)*3;
+        for(int i = sRow; i<=sRow+2; i++){
+            for(int j = sCol;j<=sCol+2; j++){
+                if(board[i][j]==digit){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
