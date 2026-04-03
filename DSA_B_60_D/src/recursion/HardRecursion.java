@@ -1,5 +1,8 @@
 package recursion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HardRecursion {
     public static void main(String[] args) {
         // N-Queens problem
@@ -25,6 +28,23 @@ public class HardRecursion {
                 {'.','.','.','.','8','.','.','7','9'}
         };
         sudokuSolver(sudokuBoard);
+        // Rat in a Maze problem
+        // input data for maze
+        int [][] maze = {
+                {1, 0, 0, 0},
+                {1, 1, 0, 1},
+                {0, 1, 0, 0},
+                {1, 1, 1, 1}
+        };
+        // visited array to keep track of visited cells
+        boolean[][] visited = {{false,false,false,false},
+                {false,false,false,false},
+                {false,false,false,false},
+                {false,false,false,false}};
+        int n1 = maze.length;
+        List<String> solution = new ArrayList<>();
+        String path = "";;
+        solveRatInMaze(maze, 0, 0, path, visited, solution);   // row=0, col=0 is the starting point of the maze
     }
     public static void solveNQueens(char[][] board, int row, int n){
 
@@ -139,5 +159,34 @@ public class HardRecursion {
             }
         }
         return true;
+    }
+
+    public static void solveRatInMaze(int[][] maze, int row, int col, String path, boolean[][] visited, List<String> solution) {
+
+        helper(maze, row, col, path, visited, solution);
+    }
+    public static void helper(int[][] maze, int row, int col, String path, boolean[][] visited, List<String> solution){
+
+        // Base case
+        if(row ==0 || col == 0 || row<0 || col<0 || maze[row][col] == 0 || visited[row][col] == true){
+            return;
+        }
+        if(row==maze.length-1 && col == maze[0].length-1){
+            // print the path
+            solution.add(path);
+            System.out.println("Path to go to the destination ::: "+path.toString());
+            return;
+        }
+        visited[row][col] = true;
+        // up recursion
+        helper(maze, row-1, col, path+"U", visited,solution);
+        // down recursion
+        helper(maze, row+1, col, path+"D", visited,solution);
+        // left recursion
+        helper(maze, row, col-1, path+"L", visited,solution);
+        // right recursion
+        helper(maze, row, col+1, path+"R", visited,solution);
+        // backtrack
+        visited[row][col]=false;
     }
 }
