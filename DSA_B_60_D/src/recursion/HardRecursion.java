@@ -167,25 +167,28 @@ public class HardRecursion {
     }
     public static void helper(int[][] maze, int row, int col, String path, boolean[][] visited, List<String> solution){
 
+        int n = maze.length;  // number of rows
+        int m = maze[0].length; // number of columns
         // Base case
-        if(row ==0 || col == 0 || row<0 || col<0 || maze[row][col] == 0 || visited[row][col] == true){
+        if( row<0 || col<0|| row >= n || col >= m || maze[row][col] == 0 || visited[row][col]){
             return;
         }
-        if(row==maze.length-1 && col == maze[0].length-1){
+        if(row==n-1 && col == m-1){
             // print the path
             solution.add(path);
-            System.out.println("Path to go to the destination ::: "+path.toString());
+            System.out.println("Path to go to the destination ::: "+path);
             return;
         }
         visited[row][col] = true;
-        // up recursion
-        helper(maze, row-1, col, path+"U", visited,solution);
+        // Move in all direction
         // down recursion
         helper(maze, row+1, col, path+"D", visited,solution);
         // left recursion
         helper(maze, row, col-1, path+"L", visited,solution);
         // right recursion
         helper(maze, row, col+1, path+"R", visited,solution);
+        // up recursion
+        helper(maze, row-1, col, path+"U", visited,solution);
         // backtrack
         visited[row][col]=false;
     }
