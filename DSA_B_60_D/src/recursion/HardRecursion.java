@@ -45,6 +45,7 @@ public class HardRecursion {
         List<String> solution = new ArrayList<>();
         String path = "";;
         solveRatInMaze(maze, 0, 0, path, visited, solution);   // row=0, col=0 is the starting point of the maze
+        solveRatInMazeII(maze, 0,0,path,solution);
     }
     public static void solveNQueens(char[][] board, int row, int n){
 
@@ -191,5 +192,33 @@ public class HardRecursion {
         helper(maze, row-1, col, path+"U", visited,solution);
         // backtrack
         visited[row][col]=false;
+    }
+
+    public static void solveRatInMazeII(int[][] maze, int row, int col, String path, List<String> solution){
+        helperII(maze, row, col, path, solution);
+    }
+    public static void helperII(int[][] maze, int row, int col, String path, List<String> solution){
+        int n = maze.length;  // number of rows
+        int m = maze[0].length; // number of columns
+        // Base Case
+        if(row<0 || col<0 || row>=n || col>= m || maze[row][col] == 0 || maze[row][col] == -1){
+            return;
+        }
+        if(row == n-1 && col == m-1){
+            solution.add(path);
+            System.out.println("Path to go to the destination in variations II ::: "+path);
+            return;
+        }
+        maze[row][col] = -1;  // mark the cell as visited by changing its value to -1, so that we don't need a separate visited array
+        // recursion cases
+        // Down recursion
+        helperII(maze, row+1, col, path+"D", solution);
+        // Left recursion
+        helperII(maze, row, col-1, path+"L", solution);
+        // Right recursion
+        helperII(maze, row, col+1, path+"R", solution);
+        // Up recursion
+        helperII(maze, row-1, col, path+"U", solution);
+        maze[row][col] = 1; // backtrack by marking the cell as unvisited again
     }
 }
