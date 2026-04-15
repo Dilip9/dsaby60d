@@ -46,6 +46,10 @@ public class HardRecursion {
         String path = "";;
         solveRatInMaze(maze, 0, 0, path, visited, solution);   // row=0, col=0 is the starting point of the maze
         solveRatInMazeII(maze, 0,0,path,solution);
+        // Inversion Count problem
+        int[] arr = {1, 20, 6, 4, 5};
+        int inversionCount = countInversions(arr);
+        System.out.println("Number of inversions in the array: " + inversionCount);
     }
     public static void solveNQueens(char[][] board, int row, int n){
 
@@ -220,5 +224,43 @@ public class HardRecursion {
         // Up recursion
         helperII(maze, row-1, col, path+"U", solution);
         maze[row][col] = 1; // backtrack by marking the cell as unvisited again
+    }
+
+    public static int countInversions(int[] arr){
+        return mergeSort(arr, 0, arr.length-1);
+    }
+    public static int mergeSort(int[] arr, int low, int high){
+        if(low<high){
+            int mid = low+(high-low)/2;
+            int leftInversions = mergeSort(arr, low, mid);
+            int rightInversions = mergeSort(arr, mid+1, high);
+            int mergeInversions = merge(arr, low, mid, high);
+            return leftInversions + rightInversions + mergeInversions;
+        }
+        return 0;
+    }
+    public static int merge(int[] arr, int low, int mid, int high){
+        int[] temp = new int[high-low+1];
+        int i = low, j = mid+1, k = 0;
+        int inversionCount = 0;
+        while(i<=mid && j<=high){
+            if(arr[i] <= arr[j]){
+                temp[k++] = arr[i++];
+            }else{
+                temp[k++] = arr[j++];
+                inversionCount += (mid - i + 1); // count the inversions
+            }
+        }
+        while(i<=mid){
+            temp[k++] = arr[i++];
+        }
+        while(j<=high){
+            temp[k++] = arr[j++];
+        }
+        // copy the sorted temp array back to the original array
+        for(int p = 0; p<temp.length; p++) {
+            arr[low + p] = temp[p];
+        }
+        return inversionCount;
     }
 }
